@@ -11,11 +11,11 @@ import { LoadingSkeletonComponent } from '../../shared/components/loading-skelet
   inputs: ['user', 'isLoading', 'errorMessage'],
   outputs: ['retry'],
   template: `
-    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-xs mb-6 relative overflow-hidden">
+    <div class="surface-card p-5 mb-6 relative overflow-hidden">
       <!-- Loading Skeleton State -->
       <div *ngIf="isLoading" class="space-y-4">
         <div class="flex items-center gap-4">
-          <div class="w-14 h-14 bg-slate-200 rounded-full animate-pulse"></div>
+          <div class="w-14 h-14 bg-slate-200 rounded-full skeleton-shimmer"></div>
           <div class="space-y-2 flex-1">
             <div class="h-4 bg-slate-200 rounded w-48 animate-pulse"></div>
             <div class="h-3 bg-slate-200 rounded w-32 animate-pulse"></div>

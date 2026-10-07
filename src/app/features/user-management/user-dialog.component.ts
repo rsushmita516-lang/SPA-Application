@@ -11,9 +11,9 @@ import { User, CreateUserPayload, UpdateUserPayload } from '../../shared/models/
   outputs: ['saveCreate', 'saveUpdate', 'cancel'],
   template: `
     <!-- Modal Backdrop -->
-    <div class="fixed inset-0 bg-slate-950/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+    <div class="dialog-backdrop fixed inset-0 bg-slate-950/60 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
       <!-- Dialog Card -->
-      <div class="bg-white rounded-xl shadow-2xl border border-slate-200 max-w-lg w-full overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      <div class="dialog-panel bg-white rounded-lg shadow-2xl border border-slate-200 max-w-lg w-full overflow-hidden">
         <!-- Dialog Header -->
         <div class="px-6 py-4 border-b border-slate-100 bg-slate-50/70 flex items-center justify-between">
           <div>

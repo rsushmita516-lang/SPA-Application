@@ -26,11 +26,11 @@ import { LoadingSkeletonComponent } from '../../shared/components/loading-skelet
     DatePipe,
   ],
   template: `
-    <div class="space-y-6">
+    <div class="space-y-6 animate-[dialog-in_260ms_ease-out]">
       <!-- Page Header -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 class="text-2xl font-bold text-slate-900 tracking-tight">Portal Dashboard</h1>
+          <h1 class="page-title text-2xl font-bold text-slate-900 tracking-tight">Portal Dashboard</h1>
           <p class="text-xs text-slate-500 mt-1">
             Access-controlled records view with independent asynchronous data retrieval.
           </p>
@@ -74,7 +74,7 @@ import { LoadingSkeletonComponent } from '../../shared/components/loading-skelet
       ></app-profile-card>
 
       <!-- 3. Records Table Card -->
-      <div class="bg-white border border-slate-200 rounded-xl shadow-xs overflow-hidden">
+      <div class="surface-card data-table overflow-hidden">
         <!-- Records Header & Filter Toolbar -->
         <div class="p-4 sm:p-5 border-b border-slate-200 space-y-3">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">

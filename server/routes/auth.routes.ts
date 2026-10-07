@@ -29,6 +29,79 @@ router.get('/session', async (req: Request, res: Response) => {
   }
 });
 
+// POST /api/auth/register - Create a new account without creating a session
+router.post('/register', async (req: Request, res: Response) => {
+  const { userId, name, email, password, role } = req.body;
+
+  if (!userId || !name || !email || !password || !role) {
+    res.status(400).json({ error: 'All fields (User ID, Name, Email, Password, Role) are required.' });
+    return;
+  }
+
+  const cleanUserId = String(userId).trim().toLowerCase();
+  const cleanName = String(name).trim();
+  const cleanEmail = String(email).trim().toLowerCase();
+
+  if (!/^[a-zA-Z0-9_-]{3,20}$/.test(cleanUserId)) {
+    res.status(400).json({ error: 'User ID must be 3-20 characters alphanumeric (dashes/underscores allowed).' });
+    return;
+  }
+  if (cleanName.length < 2) {
+    res.status(400).json({ error: 'Name must be at least 2 characters long.' });
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+    res.status(400).json({ error: 'Please provide a valid email address.' });
+    return;
+  }
+  if (String(password).length < 6) {
+    res.status(400).json({ error: 'Password must be at least 6 characters long.' });
+    return;
+  }
+  if (role !== 'Admin' && role !== 'General User') {
+    res.status(400).json({ error: 'Role must be either "Admin" or "General User".' });
+    return;
+  }
+
+  try {
+    const db = await getDb();
+    const existing = await db.collection('users').findOne({ userId: cleanUserId });
+    if (existing) {
+      res.status(409).json({ error: `User ID '${cleanUserId}' already exists.` });
+      return;
+    }
+
+    const passwordHash = await bcrypt.hash(String(password), 10);
+    const newUser = {
+      userId: cleanUserId,
+      name: cleanName,
+      email: cleanEmail,
+      passwordHash,
+      role,
+      status: 'Active' as const,
+      isDeleted: false,
+      createdAt: new Date().toISOString(),
+    };
+
+    await db.collection('users').insertOne(newUser);
+    res.status(201).json({
+      success: true,
+      user: {
+        userId: newUser.userId,
+        name: newUser.name,
+        email: newUser.email,
+        role: newUser.role,
+        status: newUser.status,
+        isDeleted: newUser.isDeleted,
+        createdAt: newUser.createdAt,
+      },
+    });
+  } catch (error) {
+    console.error('Registration error:', error);
+    res.status(500).json({ error: 'Failed to create account.' });
+  }
+});
+
 // POST /api/auth/login — Sign in
 router.post('/login', async (req: Request, res: Response) => {
   const { userId, password, selectedRole } = req.body;

@@ -19,14 +19,14 @@ import { AuthService } from '../core/services/auth.service.js';
 
     <!-- Sidebar Container (Dark Sidebar) -->
     <aside
-      class="fixed top-0 bottom-0 left-0 w-64 bg-slate-950 text-slate-300 z-40 flex flex-col border-r border-slate-800 transition-transform duration-200 ease-in-out md:translate-x-0"
+      class="app-sidebar fixed top-0 bottom-0 left-0 w-64 text-slate-300 z-40 flex flex-col border-r transition-transform duration-200 ease-in-out md:translate-x-0"
       [class.translate-x-0]="isOpen"
       [class.-translate-x-full]="!isOpen"
     >
       <!-- Brand Header -->
-      <div class="h-16 flex items-center justify-between px-6 border-b border-slate-800/80 bg-slate-950/50">
+      <div class="h-16 flex items-center justify-between px-6 border-b border-white/10 bg-slate-950/20">
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded bg-indigo-600 text-white flex items-center justify-center font-bold text-sm tracking-wider shadow-sm">
+          <div class="w-8 h-8 rounded-md bg-blue-600 text-white flex items-center justify-center font-bold text-sm tracking-wider shadow-sm">
             AP
           </div>
           <div class="leading-tight">
@@ -54,7 +54,7 @@ import { AuthService } from '../core/services/auth.service.js';
 
         <a
           routerLink="/dashboard"
-          routerLinkActive="bg-indigo-600/15 text-indigo-400 border-l-2 border-indigo-500 font-medium"
+          routerLinkActive="bg-blue-500/15 text-blue-300 border-l-2 border-blue-400 font-medium"
           (click)="closeSidebar.emit()"
           class="flex items-center gap-3 px-3 py-2.5 rounded text-sm text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
         >
@@ -68,7 +68,7 @@ import { AuthService } from '../core/services/auth.service.js';
         <a
           *ngIf="authService.isAdmin"
           routerLink="/users"
-          routerLinkActive="bg-indigo-600/15 text-indigo-400 border-l-2 border-indigo-500 font-medium"
+          routerLinkActive="bg-blue-500/15 text-blue-300 border-l-2 border-blue-400 font-medium"
           (click)="closeSidebar.emit()"
           class="flex items-center gap-3 px-3 py-2.5 rounded text-sm text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
         >
@@ -77,7 +77,7 @@ import { AuthService } from '../core/services/auth.service.js';
           </svg>
           <div class="flex items-center justify-between w-full">
             <span>User Management</span>
-            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-800/60 uppercase">
+              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 border border-blue-800/60 uppercase">
               Admin
             </span>
           </div>
@@ -96,7 +96,7 @@ import { AuthService } from '../core/services/auth.service.js';
       <div class="p-4 border-t border-slate-800/80 bg-slate-950/70" *ngIf="authService.currentUser$ | async as user">
         <div class="flex items-center justify-between mb-3">
           <div class="flex items-center gap-2.5 truncate">
-            <div class="w-7 h-7 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 flex items-center justify-center text-xs font-semibold shrink-0">
+            <div class="w-7 h-7 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 flex items-center justify-center text-xs font-semibold shrink-0">
               {{ user.name.charAt(0) }}
             </div>
             <div class="truncate text-left">

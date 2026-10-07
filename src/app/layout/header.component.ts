@@ -9,7 +9,7 @@ import { AuthService } from '../core/services/auth.service.js';
   imports: [CommonModule],
   outputs: ['toggleSidebar'],
   template: `
-    <header class="h-16 bg-white border-b border-slate-200 px-4 md:px-6 flex items-center justify-between sticky top-0 z-20">
+    <header class="app-header h-16 px-4 md:px-6 flex items-center justify-between sticky top-0 z-20">
       <div class="flex items-center gap-3">
         <button
           type="button"
@@ -50,7 +50,7 @@ import { AuthService } from '../core/services/auth.service.js';
         <button
           type="button"
           (click)="onLogout()"
-          class="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-rose-700 bg-slate-100 hover:bg-rose-50 border border-slate-200 hover:border-rose-200 rounded transition-colors"
+          class="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-rose-700 bg-slate-100 hover:bg-rose-50 border border-slate-200 hover:border-rose-200 rounded-md transition-colors"
         >
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />

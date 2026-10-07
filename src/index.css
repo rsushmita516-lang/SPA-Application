@@ -1,14 +1,55 @@
 @import "tailwindcss";
 
+:root {
+  --canvas: #f6f8fa;
+  --surface: #ffffff;
+  --surface-muted: #f6f8fa;
+  --surface-subtle: #eef1f4;
+  --ink: #1f2328;
+  --ink-muted: #656d76;
+  --ink-faint: #8c959f;
+  --line: #d0d7de;
+  --line-soft: #e6eaef;
+  --sidebar: #24292f;
+  --sidebar-deep: #1f2328;
+  --blue: #0969da;
+  --blue-hover: #0558b7;
+  --blue-wash: #ddf4ff;
+  --green: #1a7f37;
+  --amber: #9a6700;
+  --red: #cf222e;
+  --shadow-sm: 0 1px 2px rgba(31, 35, 40, 0.08);
+  --shadow-md: 0 8px 24px rgba(31, 35, 40, 0.10);
+  --ease: 220ms cubic-bezier(.2, .7, .2, 1);
+}
+
 @layer base {
   html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #f8fafc;
-    color: #0f172a;
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--canvas);
+    color: var(--ink);
     -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-image: linear-gradient(rgba(208, 215, 222, .22) 1px, transparent 1px), linear-gradient(90deg, rgba(208, 215, 222, .22) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  button, a, input, select, textarea {
+    transition: color var(--ease), background-color var(--ease), border-color var(--ease), box-shadow var(--ease), transform var(--ease), opacity var(--ease);
+  }
+
+  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid rgba(9, 105, 218, .28);
+    outline-offset: 2px;
   }
 }
 
@@ -29,6 +70,302 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+.app-shell {
+  background: transparent;
+}
+
+.app-main {
+  max-width: 1440px;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.app-header {
+  background: rgba(255, 255, 255, .92);
+  border-color: var(--line-soft);
+  box-shadow: 0 1px 0 rgba(31, 35, 40, .04);
+  backdrop-filter: blur(14px);
+}
+
+.app-sidebar {
+  background: var(--sidebar);
+  border-color: rgba(255, 255, 255, .08);
+  box-shadow: 12px 0 32px rgba(31, 35, 40, .08);
+}
+
+.surface-card {
+  background: var(--surface);
+  border-color: var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--ease), border-color var(--ease), transform var(--ease);
+}
+
+.surface-card:hover {
+  border-color: #b6c2cf;
+  box-shadow: var(--shadow-md);
+}
+
+.page-title {
+  letter-spacing: -.025em;
+}
+
+.data-table tbody tr {
+  transition: background-color var(--ease), box-shadow var(--ease);
+}
+
+.data-table tbody tr:hover {
+  background: #f6f8fa;
+  box-shadow: inset 3px 0 0 var(--blue);
+}
+
+.data-table thead tr {
+  background: #f6f8fa;
+}
+
+.status-dot {
+  box-shadow: 0 0 0 3px rgba(26, 127, 55, .10);
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #eaeef2 25%, #f6f8fa 50%, #eaeef2 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.dialog-backdrop {
+  animation: backdrop-in 180ms ease-out both;
+}
+
+.dialog-panel {
+  animation: dialog-in 220ms cubic-bezier(.2, .8, .2, 1) both;
+}
+
+/* Login-only deep-space backdrop. The separate layers move at different speeds
+   to create depth without introducing a canvas or runtime rendering work. */
+.login-space {
+  background: #050816;
+  color: #f8fafc;
+}
+
+.login-space-scene,
+.login-nebula,
+.login-galaxy-band,
+.login-stars,
+.login-particles {
+  position: absolute;
+  inset: 0;
+}
+
+.login-nebula {
+  filter: blur(34px);
+  opacity: .62;
+  transform: translate3d(0, 0, 0) scale(1.08);
+  will-change: transform;
+}
+
+.login-nebula-one {
+  background:
+    radial-gradient(ellipse at 18% 28%, rgba(79, 70, 229, .34) 0, rgba(49, 46, 129, .18) 21%, transparent 52%),
+    radial-gradient(ellipse at 84% 74%, rgba(37, 99, 235, .25) 0, rgba(30, 64, 175, .12) 20%, transparent 50%);
+  animation: login-nebula-drift-one 26s ease-in-out infinite alternate;
+}
+
+.login-nebula-two {
+  background:
+    radial-gradient(ellipse at 76% 18%, rgba(124, 58, 237, .24) 0, rgba(76, 29, 149, .12) 18%, transparent 46%),
+    radial-gradient(ellipse at 30% 82%, rgba(30, 64, 175, .22) 0, transparent 48%);
+  opacity: .48;
+  animation: login-nebula-drift-two 34s ease-in-out infinite alternate;
+}
+
+.login-nebula-three {
+  background: radial-gradient(ellipse at 50% 48%, rgba(30, 41, 110, .26) 0, transparent 54%);
+  filter: blur(52px);
+  opacity: .7;
+  animation: login-nebula-breathe 18s ease-in-out infinite alternate;
+}
+
+.login-galaxy-band {
+  inset: -42% -18%;
+  background:
+    radial-gradient(ellipse at center, transparent 18%, rgba(99, 102, 241, .08) 38%, rgba(59, 130, 246, .18) 47%, rgba(124, 58, 237, .08) 54%, transparent 70%),
+    linear-gradient(112deg, transparent 34%, rgba(129, 140, 248, .09) 46%, rgba(191, 219, 254, .07) 50%, rgba(99, 102, 241, .09) 55%, transparent 68%);
+  filter: blur(20px);
+  opacity: .82;
+  transform: rotate(-16deg) translate3d(-2%, 0, 0) scale(1.12);
+  animation: login-galaxy-sway 42s ease-in-out infinite alternate;
+}
+
+.login-galaxy-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.login-stars {
+  inset: -18%;
+  background-repeat: repeat;
+  will-change: transform;
+}
+
+.login-stars-far {
+  opacity: .56;
+  background-size: 137px 151px;
+  background-image:
+    radial-gradient(circle at 12px 24px, rgba(255,255,255,.8) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 74px 92px, rgba(165,180,252,.65) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 118px 44px, rgba(255,255,255,.42) 0 .8px, transparent 1.4px),
+    radial-gradient(circle at 42px 133px, rgba(191,219,254,.55) 0 .8px, transparent 1.5px),
+    radial-gradient(circle at 101px 119px, rgba(255,255,255,.35) 0 .7px, transparent 1.3px);
+  animation: login-stars-drift 46s linear infinite;
+}
+
+.login-stars-mid {
+  opacity: .66;
+  background-size: 181px 173px;
+  background-image:
+    radial-gradient(circle at 34px 39px, rgba(255,255,255,.82) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 152px 116px, rgba(196,181,253,.62) 0 .9px, transparent 1.6px),
+    radial-gradient(circle at 96px 152px, rgba(147,197,253,.64) 0 .8px, transparent 1.5px),
+    radial-gradient(circle at 12px 137px, rgba(255,255,255,.45) 0 .7px, transparent 1.4px);
+  animation: login-stars-drift-mid 36s linear infinite;
+}
+
+.login-stars-near {
+  opacity: .78;
+  background-size: 223px 197px;
+  background-image:
+    radial-gradient(circle at 21px 61px, rgba(255,255,255,.95) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 147px 25px, rgba(129,140,248,.8) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 195px 161px, rgba(219,234,254,.72) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 83px 176px, rgba(255,255,255,.64) 0 .8px, transparent 1.6px),
+    radial-gradient(circle at 183px 81px, rgba(165,180,252,.7) 0 .8px, transparent 1.6px);
+  animation: login-stars-drift-near 31s linear infinite;
+}
+
+.login-particles::before,
+.login-particles::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(191, 219, 254, .92);
+  box-shadow: 0 0 18px 5px rgba(129, 140, 248, .4);
+  animation: login-particle-float 11s ease-in-out infinite;
+}
+
+.login-particles::before {
+  left: 14%;
+  top: 21%;
+}
+
+.login-particles::after {
+  right: 17%;
+  bottom: 24%;
+  width: 3px;
+  height: 3px;
+  animation-delay: -5s;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, .86);
+  border: 1px solid rgba(255, 255, 255, .62);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, .36), 0 0 0 1px rgba(129, 140, 248, .12);
+  backdrop-filter: blur(22px) saturate(125%);
+  -webkit-backdrop-filter: blur(22px) saturate(125%);
+}
+
+.login-card button[type="submit"] {
+  box-shadow: 0 8px 24px rgba(37, 99, 235, .24);
+}
+
+.login-card button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, .34);
+}
+
+@keyframes login-nebula-drift-one {
+  from { transform: translate3d(-2%, 1%, 0) scale(1.08); }
+  to { transform: translate3d(3%, -2%, 0) scale(1.14); }
+}
+
+@keyframes login-nebula-drift-two {
+  from { transform: translate3d(2%, -2%, 0) scale(1.12); }
+  to { transform: translate3d(-3%, 3%, 0) scale(1.18); }
+}
+
+@keyframes login-nebula-breathe {
+  from { opacity: .42; transform: scale(1); }
+  to { opacity: .76; transform: scale(1.12); }
+}
+
+@keyframes login-galaxy-sway {
+  from { transform: rotate(-16deg) translate3d(-3%, 1%, 0) scale(1.12); }
+  to { transform: rotate(-12deg) translate3d(4%, -2%, 0) scale(1.2); }
+}
+
+@keyframes login-stars-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(5%, 3%, 0); }
+}
+
+@keyframes login-stars-drift-mid {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(8%, -4%, 0) scale(1.06); }
+}
+
+@keyframes login-stars-drift-near {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-7%, 5%, 0) scale(1.04); }
+}
+
+@keyframes login-particle-float {
+  0%, 100% { opacity: .25; transform: translate3d(0, 14px, 0) scale(.75); }
+  45% { opacity: .95; transform: translate3d(18px, -12px, 0) scale(1); }
+  70% { opacity: .4; transform: translate3d(-8px, -25px, 0) scale(.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-nebula,
+  .login-galaxy-band,
+  .login-stars,
+  .login-particles::before,
+  .login-particles::after {
+    animation: none;
+  }
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+@keyframes backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(8px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 767px) {
+  .app-main {
+    padding-top: 1.25rem;
+    padding-bottom: 2rem;
+  }
+
+  .data-table {
+    min-width: 720px;
+  }
 }
 
 /* Material elevation & subtle tactile transitions */

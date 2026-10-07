@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
       <div *ngFor="let row of rowArray" class="flex gap-4 items-center">
         <div
           *ngFor="let width of getWidths(row)"
-          class="h-4 bg-slate-200 rounded"
+          class="h-4 bg-slate-200 rounded skeleton-shimmer"
           [style.width]="width"
         ></div>
       </div>

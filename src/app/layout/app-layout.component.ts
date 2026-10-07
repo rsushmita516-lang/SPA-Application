@@ -9,7 +9,7 @@ import { SidebarComponent } from './sidebar.component.js';
   standalone: true,
   imports: [CommonModule, RouterModule, HeaderComponent, SidebarComponent],
   template: `
-    <div class="min-h-screen bg-slate-50 flex">
+    <div class="app-shell min-h-screen flex">
       <!-- Dark Sidebar -->
       <app-sidebar [isOpen]="isSidebarOpen" (closeSidebar)="isSidebarOpen = false"></app-sidebar>
 
@@ -17,7 +17,7 @@ import { SidebarComponent } from './sidebar.component.js';
       <div class="flex-1 flex flex-col md:pl-64 min-w-0">
         <app-header (toggleSidebar)="isSidebarOpen = !isSidebarOpen"></app-header>
 
-        <main class="flex-1 p-4 md:p-8 max-w-7xl w-full mx-auto">
+        <main class="app-main flex-1 px-4 md:px-8 w-full mx-auto">
           <router-outlet></router-outlet>
         </main>
       </div>

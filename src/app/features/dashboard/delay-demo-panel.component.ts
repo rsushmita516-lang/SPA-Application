@@ -16,7 +16,7 @@ export interface RequestMetric {
   inputs: ['profileDelay', 'recordsDelay', 'profileMetric', 'recordsMetric'],
   outputs: ['profileDelayChange', 'recordsDelayChange', 'reloadProfile', 'reloadRecords', 'reloadBoth'],
   template: `
-    <div class="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 shadow-xs mb-6">
+    <div class="surface-card p-4 sm:p-5 mb-6">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
         <div>
           <div class="flex items-center gap-2">
@@ -43,7 +43,7 @@ export interface RequestMetric {
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3">
         <!-- Profile Delay Control -->
-        <div class="p-3 bg-slate-50 border border-slate-200/80 rounded-lg">
+        <div class="bg-slate-50 border border-slate-200 rounded-md p-3 hover:border-slate-300 transition-colors">
           <div class="flex items-center justify-between mb-2">
             <span class="text-xs font-semibold text-slate-800">Profile Request Delay (GET /api/users/me)</span>
             <!-- Status Badge -->
@@ -84,7 +84,7 @@ export interface RequestMetric {
         </div>
 
         <!-- Records Delay Control -->
-        <div class="p-3 bg-slate-50 border border-slate-200/80 rounded-lg">
+        <div class="bg-slate-50 border border-slate-200 rounded-md p-3 hover:border-slate-300 transition-colors">
           <div class="flex items-center justify-between mb-2">
             <span class="text-xs font-semibold text-slate-800">Records Request Delay (GET /api/records)</span>
             <!-- Status Badge -->

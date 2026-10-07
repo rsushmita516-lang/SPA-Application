@@ -8,10 +8,10 @@ import { CommonModule } from '@angular/common';
   inputs: ['status'],
   template: `
     <span
-      class="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-medium rounded border"
+      class="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-medium rounded-md border"
       [ngClass]="getBadgeClass()"
     >
-      <span class="w-1.5 h-1.5 rounded-full" [ngClass]="getDotClass()"></span>
+      <span class="status-dot w-1.5 h-1.5 rounded-full" [ngClass]="getDotClass()"></span>
       {{ status }}
     </span>
   `
