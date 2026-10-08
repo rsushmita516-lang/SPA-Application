@@ -20,10 +20,37 @@ A responsive Single-Page Application (SPA) built with Angular 19, TypeScript, Rx
 
 ---
 
-## 2. Asynchronous Loading & API Delay Demonstration
+## Visual Walkthrough
 
-The dashboard includes a dedicated **API Delay Demo Panel**:
-- Separate delay selectors for profile (`GET /api/users/me?delayMs=...`) and records (`GET /api/records?delayMs=...`) with values: `0ms`, `500ms`, `1500ms`, `3000ms`.
+### Login Page
+
+The split authentication layout includes the animated galaxy brand panel, role selection, demo credentials, and accessible sign-in form.
+
+![Login page](docs/screenshots/login-page.png)
+
+### Register Page
+
+The registration flow uses the same branded layout for creating General User or Admin accounts.
+
+![Register page](docs/screenshots/register-page.png)
+
+### Dashboard Page
+
+The authenticated dashboard presents the user profile, access scope, searchable records, status filters, pagination, and refresh actions.
+
+![Dashboard page](docs/screenshots/dashboard-page.png)
+
+### User Management Page
+
+Administrators can review users, roles, account status, registration dates, and available account actions.
+
+![User Management page](docs/screenshots/user-management-page.png)
+
+---
+
+## 2. Asynchronous Loading & API Delay Support
+
+The API supports non-blocking delay simulation for profile (`GET /api/users/me?delayMs=...`) and records (`GET /api/records?delayMs=...`) requests.
 - Non-blocking server-side simulated delays (`handleDelaySimulation`).
 - **Independent Loading**: The profile card appears immediately as soon as its request finishes, while the records table continues showing an animated loading skeleton until its delay elapses.
 - Displays pending, completed, or failed states with actual elapsed execution duration in milliseconds.
