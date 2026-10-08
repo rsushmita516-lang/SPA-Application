@@ -23,6 +23,13 @@ interface GalaxyStar {
   template: `
     <div class="auth-page login-space min-h-screen flex relative overflow-hidden isolate">
       <section class="auth-visual-panel hidden lg:flex lg:w-[46%] p-10 xl:p-14 flex-col justify-between" aria-label="Access Portal overview">
+        <div class="login-space-scene absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div class="login-nebula login-nebula-one"></div>
+          <div class="login-nebula login-nebula-two"></div>
+          <div class="login-nebula login-nebula-three"></div>
+          <div class="login-galaxy-band"></div>
+          <canvas #galaxyCanvas class="login-galaxy-canvas"></canvas>
+        </div>
         <div class="auth-brand flex items-center gap-3">
           <div class="w-10 h-10 bg-blue-500 rounded-xl text-white flex items-center justify-center font-bold text-lg shadow-lg">AP</div>
           <div>
@@ -41,13 +48,6 @@ interface GalaxyStar {
         <div class="text-xs text-slate-500">Secure workspace · Built for confident access decisions</div>
       </section>
       <div class="auth-form-panel flex-1 flex items-center justify-center px-5 py-10 sm:px-10 lg:px-14 xl:px-20">
-      <div class="login-space-scene absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div class="login-nebula login-nebula-one"></div>
-        <div class="login-nebula login-nebula-two"></div>
-        <div class="login-nebula login-nebula-three"></div>
-        <div class="login-galaxy-band"></div>
-        <canvas #galaxyCanvas class="login-galaxy-canvas"></canvas>
-      </div>
       <div class="login-card relative w-full max-w-md rounded-lg shadow-2xl overflow-hidden animate-[dialog-in_260ms_ease-out]">
         <!-- Header Banner -->
         <div class="login-card-header p-6 sm:p-8 border-b text-center">
@@ -261,7 +261,7 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
     const canvas = this.galaxyCanvas.nativeElement;
     this.galaxyContext = canvas.getContext('2d');
     this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    this.galaxyStars = this.createGalaxyStars(2200);
+    this.galaxyStars = this.createGalaxyStars(2800);
     this.resizeGalaxyCanvas();
 
     window.addEventListener('resize', this.handleGalaxyResize, { passive: true });
@@ -355,13 +355,13 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
       const twinkle = star.twinkle ? 0.72 + Math.sin(elapsed * 0.0012 + star.phase) * 0.28 : 1;
       const radius = star.size * (0.7 + (width / 1440) * 0.3);
 
-      context.globalAlpha = Math.max(0.08, star.alpha * twinkle);
+      context.globalAlpha = Math.max(0.16, star.alpha * twinkle);
       context.fillStyle = star.color;
       if (star.depth > 0.84 && star.twinkle) {
         context.shadowBlur = radius * 4;
         context.shadowColor = star.color;
       }
-      context.fillRect(x, y, radius, radius);
+      context.fillRect(x, y, Math.max(.7, radius), Math.max(.7, radius));
       context.shadowBlur = 0;
     }
 

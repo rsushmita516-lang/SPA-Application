@@ -19,12 +19,18 @@ import { AuthService } from '../core/services/auth.service.js';
 
     <!-- Sidebar Container (Dark Sidebar) -->
     <aside
-      class="app-sidebar fixed top-0 bottom-0 left-0 w-64 text-slate-300 z-40 flex flex-col border-r transition-transform duration-200 ease-in-out md:translate-x-0"
+      class="app-sidebar fixed top-0 bottom-0 left-0 w-64 text-slate-300 z-40 flex flex-col border-r transition-transform duration-200 ease-in-out md:translate-x-0 overflow-hidden"
       [class.translate-x-0]="isOpen"
       [class.-translate-x-full]="!isOpen"
     >
+      <div class="sidebar-galaxy" aria-hidden="true">
+        <div class="sidebar-galaxy-cloud sidebar-galaxy-cloud-one"></div>
+        <div class="sidebar-galaxy-cloud sidebar-galaxy-cloud-two"></div>
+        <div class="sidebar-galaxy-stars sidebar-galaxy-stars-far"></div>
+        <div class="sidebar-galaxy-stars sidebar-galaxy-stars-near"></div>
+      </div>
       <!-- Brand Header -->
-      <div class="h-16 flex items-center justify-between px-6 border-b border-white/10 bg-slate-950/20">
+      <div class="sidebar-content h-16 flex items-center justify-between px-6 border-b border-white/10 bg-slate-950/20">
         <div class="flex items-center gap-3">
           <div class="w-8 h-8 rounded-md bg-blue-600 text-white flex items-center justify-center font-bold text-sm tracking-wider shadow-sm">
             AP
@@ -47,7 +53,7 @@ import { AuthService } from '../core/services/auth.service.js';
       </div>
 
       <!-- Navigation Links -->
-      <nav class="flex-1 py-6 px-3 space-y-1 overflow-y-auto">
+      <nav class="sidebar-content flex-1 py-6 px-3 space-y-1 overflow-y-auto">
         <div class="px-3 pb-2 text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
           Workspace Navigation
         </div>
@@ -93,7 +99,7 @@ import { AuthService } from '../core/services/auth.service.js';
       </nav>
 
       <!-- Account Details & Logout Footer -->
-      <div class="p-4 border-t border-slate-800/80 bg-slate-950/70" *ngIf="authService.currentUser$ | async as user">
+      <div class="sidebar-content p-4 border-t border-slate-800/80 bg-slate-950/70" *ngIf="authService.currentUser$ | async as user">
         <div class="flex items-center justify-between mb-3">
           <div class="flex items-center gap-2.5 truncate">
             <div class="w-7 h-7 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 flex items-center justify-center text-xs font-semibold shrink-0">
