@@ -522,6 +522,249 @@
   }
 }
 
+/* Reference-aligned application presentation. */
+.auth-page {
+  background: #f6f8fa !important;
+}
+
+.auth-visual-panel {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 92% 4%, rgba(37, 99, 235, .34), transparent 34%),
+    linear-gradient(135deg, #20262d 0%, #1f252b 62%, #182b43 100%);
+}
+
+.auth-visual-panel::after {
+  content: "";
+  position: absolute;
+  inset: auto -18% -34% 18%;
+  height: 48%;
+  background: radial-gradient(ellipse, rgba(37, 99, 235, .14), transparent 66%);
+  pointer-events: none;
+}
+
+.auth-visual-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.auth-check {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #339cff;
+  border-radius: 999px;
+  color: #58a6ff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.auth-form-panel {
+  position: relative;
+  background: #f6f8fa !important;
+}
+
+.auth-form-panel .login-space-scene {
+  display: none;
+}
+
+.auth-form-panel .login-card {
+  max-width: 540px;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.auth-form-panel .login-card-header {
+  padding: 0 0 2.45rem;
+  background: transparent !important;
+  border: 0 !important;
+  text-align: left;
+}
+
+.auth-form-panel .login-card-header > div:first-child {
+  display: none;
+}
+
+.auth-form-panel .login-card-header h1 {
+  color: #1f2328 !important;
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+
+.auth-form-panel .login-card-header p {
+  color: #656d76 !important;
+  font-size: .98rem;
+}
+
+.auth-form-panel .login-card > .p-6,
+.auth-form-panel .login-card > .sm\:p-8 {
+  padding: 0 !important;
+}
+
+.auth-form-panel .login-card form {
+  padding-top: .2rem;
+}
+
+.auth-form-panel .login-card form > div:first-child {
+  margin-top: .75rem;
+}
+
+.auth-form-panel .login-card .text-slate-900,
+.auth-form-panel .login-card .text-slate-800,
+.auth-form-panel .login-card .text-slate-700,
+.auth-form-panel .login-card .text-slate-600 {
+  color: #1f2328 !important;
+}
+
+.auth-form-panel .login-card .text-slate-500,
+.auth-form-panel .login-card .text-slate-400 {
+  color: #656d76 !important;
+}
+
+.auth-form-panel .login-card input,
+.auth-form-panel .login-card select {
+  min-height: 54px;
+  background: #ffffff !important;
+  color: #1f2328 !important;
+  border-color: #d0d7de !important;
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(31, 35, 40, .04);
+}
+
+.auth-form-panel .login-card input::placeholder {
+  color: #8c959f !important;
+}
+
+.auth-form-panel .login-card input:focus,
+.auth-form-panel .login-card select:focus {
+  background: #ffffff !important;
+  border-color: #58a6ff !important;
+  box-shadow: 0 0 0 3px rgba(31, 111, 235, .15) !important;
+}
+
+.auth-form-panel .login-card button[type="submit"] {
+  min-height: 56px;
+  border-radius: 14px;
+  font-size: .95rem;
+}
+
+.auth-form-panel .login-card button.bg-slate-50 {
+  background: #ffffff !important;
+  border-color: #d0d7de !important;
+  color: #1f2328 !important;
+}
+
+.auth-form-panel .login-card button.bg-slate-50:hover {
+  background: #f6f8fa !important;
+  border-color: #58a6ff !important;
+}
+
+.auth-form-panel .login-card button.bg-slate-50 .text-slate-400 {
+  color: #656d76 !important;
+}
+
+@media (min-width: 768px) {
+  .auth-visual-panel {
+    display: flex !important;
+    width: 46% !important;
+  }
+
+  .auth-form-panel {
+    width: 54%;
+  }
+}
+
+@media (max-width: 767px) {
+  .auth-form-panel {
+    min-height: 100vh;
+  }
+}
+
+.app-shell {
+  background: #f6f8fa !important;
+  color: #1f2328 !important;
+}
+
+.app-header {
+  background: rgba(255, 255, 255, .94) !important;
+  border-color: #e6eaef !important;
+  color: #1f2328 !important;
+}
+
+.surface-card {
+  background: #ffffff !important;
+  border-color: #d0d7de !important;
+  box-shadow: 0 1px 2px rgba(31, 35, 40, .06) !important;
+}
+
+.surface-card:hover {
+  border-color: #b6c2cf !important;
+  box-shadow: 0 8px 24px rgba(31, 35, 40, .1) !important;
+}
+
+.app-shell .text-slate-900,
+.app-shell .text-slate-800,
+.app-shell .text-slate-700 {
+  color: #1f2328 !important;
+}
+
+.app-shell .text-slate-600 {
+  color: #57606a !important;
+}
+
+.app-shell .text-slate-500,
+.app-shell .text-slate-400 {
+  color: #656d76 !important;
+}
+
+.app-shell .bg-white {
+  background-color: #ffffff !important;
+}
+
+.app-shell .bg-slate-50,
+.app-shell .bg-slate-50\/60,
+.app-shell .bg-slate-50\/80,
+.app-shell .bg-slate-100 {
+  background-color: #f6f8fa !important;
+}
+
+.app-shell .border-slate-100,
+.app-shell .border-slate-200,
+.app-shell .border-slate-300 {
+  border-color: #d0d7de !important;
+}
+
+.app-shell input,
+.app-shell select {
+  background-color: #ffffff !important;
+  color: #1f2328 !important;
+  border-color: #d0d7de !important;
+}
+
+.app-shell input::placeholder {
+  color: #8c959f !important;
+}
+
+.app-shell input:focus,
+.app-shell select:focus {
+  border-color: #58a6ff !important;
+  box-shadow: 0 0 0 3px rgba(31, 111, 235, .15) !important;
+}
+
+.app-shell .data-table thead tr {
+  background: #f6f8fa !important;
+}
+
+.app-shell .data-table tbody tr:hover {
+  background: #f6f8fa !important;
+}
+
 /* Material elevation & subtle tactile transitions */
 .mat-elevation-z1 {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);

@@ -27,13 +27,13 @@ import { DeleteConfirmDialogComponent } from './delete-confirm-dialog.component.
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="page-title text-2xl font-bold text-slate-900 tracking-tight">User Management</h1>
+            <h1 class="page-title text-2xl font-bold text-slate-900 tracking-tight">User management</h1>
             <span class="text-xs font-bold px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 border border-indigo-200 uppercase">
               Admin Exclusive
             </span>
           </div>
           <p class="text-xs text-slate-500 mt-1">
-            Provision, modify, activate/deactivate, and soft-delete system users with MongoDB persistence.
+            Add, edit, pause or remove people who can use the portal.
           </p>
         </div>
 
@@ -45,7 +45,7 @@ import { DeleteConfirmDialogComponent } from './delete-confirm-dialog.component.
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
           </svg>
-          Create New User
+          New user
         </button>
       </div>
 

@@ -15,15 +15,33 @@ function passwordsMatch(control: AbstractControl): ValidationErrors | null {
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   template: `
-    <div class="min-h-screen bg-[#24292f] flex items-center justify-center p-4 sm:p-6 relative overflow-hidden">
-      <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px); background-size: 32px 32px;"></div>
+    <div class="auth-page min-h-screen flex relative overflow-hidden">
+      <section class="auth-visual-panel hidden lg:flex lg:w-[46%] p-10 xl:p-14 flex-col justify-between" aria-label="Access Portal overview">
+        <div class="auth-brand flex items-center gap-3">
+          <div class="w-10 h-10 bg-blue-500 rounded-xl text-white flex items-center justify-center font-bold text-lg shadow-lg">AP</div>
+          <div>
+            <div class="text-lg font-bold text-white tracking-tight">Access Portal</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-[0.22em]">Enterprise access</div>
+          </div>
+        </div>
+        <div class="max-w-md">
+          <h2 class="text-4xl xl:text-5xl font-bold text-white leading-[1.08] tracking-tight">One secure place for every access request.</h2>
+          <div class="mt-8 space-y-4 text-slate-300">
+            <div class="flex items-center gap-3"><span class="auth-check">✓</span><span>Role-based views for staff and admins</span></div>
+            <div class="flex items-center gap-3"><span class="auth-check">✓</span><span>See only the records you own</span></div>
+            <div class="flex items-center gap-3"><span class="auth-check">✓</span><span>Manage users in one click</span></div>
+          </div>
+        </div>
+        <div class="text-xs text-slate-500">Secure workspace · Built for confident access decisions</div>
+      </section>
+      <div class="auth-form-panel flex-1 flex items-center justify-center px-5 py-10 sm:px-10 lg:px-14 xl:px-20">
       <div class="login-card relative w-full max-w-lg rounded-lg shadow-2xl overflow-hidden animate-[dialog-in_260ms_ease-out]">
         <div class="login-card-header p-6 sm:p-8 border-b text-center">
           <div class="w-12 h-12 bg-blue-600 rounded-lg text-white mx-auto flex items-center justify-center font-bold text-lg mb-3 shadow-md">
             AP
           </div>
           <h1 class="text-xl font-bold text-white tracking-tight">Create an account</h1>
-          <p class="text-xs text-slate-300 mt-1">Register for the User Access Portal</p>
+          <p class="text-xs text-slate-300 mt-1">It takes less than a minute.</p>
         </div>
 
         <div class="p-6 sm:p-8">
@@ -94,6 +112,7 @@ function passwordsMatch(control: AbstractControl): ValidationErrors | null {
             <a routerLink="/login" class="font-semibold text-indigo-600 hover:text-indigo-700">Sign in</a>
           </p>
         </div>
+      </div>
       </div>
     </div>
   `

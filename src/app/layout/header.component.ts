@@ -23,9 +23,9 @@ import { AuthService } from '../core/services/auth.service.js';
         </button>
 
         <div class="flex items-center gap-2">
-          <span class="text-xs font-semibold tracking-wider text-slate-400 uppercase">Single-Page Portal</span>
+          <span class="text-sm font-medium text-slate-500">Access Portal</span>
           <span class="text-slate-300">/</span>
-          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2 py-0.5 rounded">Angular 19 + RxJS</span>
+          <span class="text-sm font-semibold text-slate-800">{{ currentPage }}</span>
         </div>
       </div>
 
@@ -65,6 +65,10 @@ export class HeaderComponent {
   @Output() toggleSidebar = new EventEmitter<void>();
   public authService = inject(AuthService);
   private router = inject(Router);
+
+  get currentPage(): string {
+    return this.router.url.includes('/users') ? 'User Management' : 'Dashboard';
+  }
 
   onLogout(): void {
     this.authService.logout().subscribe(() => {

@@ -8,7 +8,7 @@ import { RecordService } from '../../core/services/record.service.js';
 import { AuthService } from '../../core/services/auth.service.js';
 import { User } from '../../shared/models/user.model.js';
 import { PortalRecord, RecordsResponse } from '../../shared/models/record.model.js';
-import { DelayDemoPanelComponent, RequestMetric } from './delay-demo-panel.component.js';
+import { RequestMetric } from './delay-demo-panel.component.js';
 import { ProfileCardComponent } from './profile-card.component.js';
 import { StatusBadgeComponent } from '../../shared/components/status-badge.component.js';
 import { LoadingSkeletonComponent } from '../../shared/components/loading-skeleton.component.js';
@@ -19,7 +19,6 @@ import { LoadingSkeletonComponent } from '../../shared/components/loading-skelet
   imports: [
     CommonModule,
     FormsModule,
-    DelayDemoPanelComponent,
     ProfileCardComponent,
     StatusBadgeComponent,
     LoadingSkeletonComponent,
@@ -30,7 +29,7 @@ import { LoadingSkeletonComponent } from '../../shared/components/loading-skelet
       <!-- Page Header -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 class="page-title text-2xl font-bold text-slate-900 tracking-tight">Portal Dashboard</h1>
+          <h1 class="page-title text-2xl font-bold text-slate-900 tracking-tight">{{ profileUser ? 'Hello, ' + profileUser.name : 'Portal Dashboard' }}</h1>
           <p class="text-xs text-slate-500 mt-1">
             Access-controlled records view with independent asynchronous data retrieval.
           </p>
@@ -52,20 +51,7 @@ import { LoadingSkeletonComponent } from '../../shared/components/loading-skelet
         </div>
       </div>
 
-      <!-- 1. API Delay Demo Panel -->
-      <app-delay-demo-panel
-        [profileDelay]="profileDelay"
-        [recordsDelay]="recordsDelay"
-        [profileMetric]="profileMetric"
-        [recordsMetric]="recordsMetric"
-        (profileDelayChange)="onProfileDelayChange($event)"
-        (recordsDelayChange)="onRecordsDelayChange($event)"
-        (reloadProfile)="loadProfile()"
-        (reloadRecords)="triggerRecordsLoad()"
-        (reloadBoth)="reloadBoth()"
-      ></app-delay-demo-panel>
-
-      <!-- 2. Profile Card (Loads Independently) -->
+      <!-- Profile Card (Loads Independently) -->
       <app-profile-card
         [user]="profileUser"
         [isLoading]="profileMetric.status === 'pending'"

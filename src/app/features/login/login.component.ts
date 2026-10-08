@@ -21,7 +21,26 @@ interface GalaxyStar {
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   template: `
-    <div class="login-space min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8 relative overflow-hidden isolate">
+    <div class="auth-page login-space min-h-screen flex relative overflow-hidden isolate">
+      <section class="auth-visual-panel hidden lg:flex lg:w-[46%] p-10 xl:p-14 flex-col justify-between" aria-label="Access Portal overview">
+        <div class="auth-brand flex items-center gap-3">
+          <div class="w-10 h-10 bg-blue-500 rounded-xl text-white flex items-center justify-center font-bold text-lg shadow-lg">AP</div>
+          <div>
+            <div class="text-lg font-bold text-white tracking-tight">Access Portal</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-[0.22em]">Enterprise access</div>
+          </div>
+        </div>
+        <div class="max-w-md">
+          <h2 class="text-4xl xl:text-5xl font-bold text-white leading-[1.08] tracking-tight">One secure place for every access request.</h2>
+          <div class="mt-8 space-y-4 text-slate-300">
+            <div class="flex items-center gap-3"><span class="auth-check">✓</span><span>Role-based views for staff and admins</span></div>
+            <div class="flex items-center gap-3"><span class="auth-check">✓</span><span>See only the records you own</span></div>
+            <div class="flex items-center gap-3"><span class="auth-check">✓</span><span>Manage users in one click</span></div>
+          </div>
+        </div>
+        <div class="text-xs text-slate-500">Secure workspace · Built for confident access decisions</div>
+      </section>
+      <div class="auth-form-panel flex-1 flex items-center justify-center px-5 py-10 sm:px-10 lg:px-14 xl:px-20">
       <div class="login-space-scene absolute inset-0 pointer-events-none" aria-hidden="true">
         <div class="login-nebula login-nebula-one"></div>
         <div class="login-nebula login-nebula-two"></div>
@@ -35,8 +54,8 @@ interface GalaxyStar {
           <div class="w-12 h-12 bg-blue-600 rounded-lg text-white mx-auto flex items-center justify-center font-bold text-lg mb-3 shadow-md">
             AP
           </div>
-          <h1 class="text-xl font-bold text-white tracking-tight">User Access Portal</h1>
-          <p class="text-xs text-slate-300 mt-1">Enterprise Role-Based Authentication System</p>
+          <h1 class="text-xl font-bold text-white tracking-tight">Welcome back</h1>
+          <p class="text-xs text-slate-300 mt-1">Sign in to see your access records.</p>
         </div>
 
         <div class="p-6 sm:p-8">
@@ -117,7 +136,7 @@ interface GalaxyStar {
             <!-- Role Selector -->
             <div>
               <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                Role Selection <span class="text-rose-500">*</span>
+                Sign in as <span class="text-rose-500">*</span>
               </label>
               <div class="grid grid-cols-2 gap-3">
                 <label
@@ -133,7 +152,7 @@ interface GalaxyStar {
                     class="sr-only"
                   />
                   <span class="text-xs font-semibold text-slate-800">General User</span>
-                  <span class="text-[10px] text-slate-500 mt-0.5">Scoped owner view</span>
+                  <span class="text-[10px] text-slate-500 mt-0.5">Your own records</span>
                 </label>
 
                 <label
@@ -167,7 +186,7 @@ interface GalaxyStar {
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              <span>{{ isLoading ? 'Authenticating...' : 'Sign In to Portal' }}</span>
+              <span>{{ isLoading ? 'Authenticating...' : 'Sign in' }}</span>
             </button>
           </form>
 
@@ -206,6 +225,7 @@ interface GalaxyStar {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   `
