@@ -17,13 +17,13 @@ function passwordsMatch(control: AbstractControl): ValidationErrors | null {
   template: `
     <div class="min-h-screen bg-[#24292f] flex items-center justify-center p-4 sm:p-6 relative overflow-hidden">
       <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px); background-size: 32px 32px;"></div>
-      <div class="relative w-full max-w-lg bg-white rounded-lg shadow-2xl border border-slate-300 overflow-hidden animate-[dialog-in_260ms_ease-out]">
-        <div class="p-6 sm:p-8 border-b border-slate-100 bg-slate-50/70 text-center">
+      <div class="login-card relative w-full max-w-lg rounded-lg shadow-2xl overflow-hidden animate-[dialog-in_260ms_ease-out]">
+        <div class="login-card-header p-6 sm:p-8 border-b text-center">
           <div class="w-12 h-12 bg-blue-600 rounded-lg text-white mx-auto flex items-center justify-center font-bold text-lg mb-3 shadow-md">
             AP
           </div>
-          <h1 class="text-xl font-bold text-slate-900 tracking-tight">Create an account</h1>
-          <p class="text-xs text-slate-500 mt-1">Register for the User Access Portal</p>
+          <h1 class="text-xl font-bold text-white tracking-tight">Create an account</h1>
+          <p class="text-xs text-slate-300 mt-1">Register for the User Access Portal</p>
         </div>
 
         <div class="p-6 sm:p-8">

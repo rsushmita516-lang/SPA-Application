@@ -31,12 +31,12 @@ interface GalaxyStar {
       </div>
       <div class="login-card relative w-full max-w-md rounded-lg shadow-2xl overflow-hidden animate-[dialog-in_260ms_ease-out]">
         <!-- Header Banner -->
-        <div class="p-6 sm:p-8 border-b border-slate-100 bg-slate-50/70 text-center">
+        <div class="login-card-header p-6 sm:p-8 border-b text-center">
           <div class="w-12 h-12 bg-blue-600 rounded-lg text-white mx-auto flex items-center justify-center font-bold text-lg mb-3 shadow-md">
             AP
           </div>
-          <h1 class="text-xl font-bold text-slate-900 tracking-tight">User Access Portal</h1>
-          <p class="text-xs text-slate-500 mt-1">Enterprise Role-Based Authentication System</p>
+          <h1 class="text-xl font-bold text-white tracking-tight">User Access Portal</h1>
+          <p class="text-xs text-slate-300 mt-1">Enterprise Role-Based Authentication System</p>
         </div>
 
         <div class="p-6 sm:p-8">
@@ -262,12 +262,9 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private readonly animateGalaxy = (time: number): void => {
-    const elapsed = time - this.lastFrameTime;
     this.lastFrameTime = time;
     this.renderGalaxy(time);
-    if (elapsed >= 0) {
-      this.animationFrame = requestAnimationFrame(this.animateGalaxy);
-    }
+    this.animationFrame = requestAnimationFrame(this.animateGalaxy);
   };
 
   private createGalaxyStars(count: number): GalaxyStar[] {
@@ -320,7 +317,7 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
     const context = this.galaxyContext;
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
-    const seconds = this.reducedMotion ? 0 : time;
+    const elapsed = this.reducedMotion ? 0 : time;
 
     context.clearRect(0, 0, width, height);
     context.globalCompositeOperation = 'screen';
@@ -333,9 +330,9 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
     context.fillRect(0, 0, width, height);
 
     for (const star of this.galaxyStars) {
-      const x = ((star.x + seconds * star.drift) % 1) * width;
-      const y = ((star.y + seconds * star.drift * 0.16) % 1) * height;
-      const twinkle = star.twinkle ? 0.72 + Math.sin(seconds * 0.0012 + star.phase) * 0.28 : 1;
+      const x = ((star.x + elapsed * star.drift) % 1) * width;
+      const y = ((star.y + elapsed * star.drift * 0.16) % 1) * height;
+      const twinkle = star.twinkle ? 0.72 + Math.sin(elapsed * 0.0012 + star.phase) * 0.28 : 1;
       const radius = star.size * (0.7 + (width / 1440) * 0.3);
 
       context.globalAlpha = Math.max(0.08, star.alpha * twinkle);

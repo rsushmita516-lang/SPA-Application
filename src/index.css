@@ -275,11 +275,165 @@
 }
 
 .login-card {
-  background: rgba(255, 255, 255, .86);
-  border: 1px solid rgba(255, 255, 255, .62);
+  background: rgba(15, 23, 42, .78);
+  border: 1px solid rgba(148, 163, 184, .24);
   box-shadow: 0 28px 80px rgba(0, 0, 0, .36), 0 0 0 1px rgba(129, 140, 248, .12);
   backdrop-filter: blur(22px) saturate(125%);
   -webkit-backdrop-filter: blur(22px) saturate(125%);
+}
+
+.login-card-header {
+  background: linear-gradient(145deg, rgba(15, 23, 42, .94), rgba(30, 41, 59, .88));
+  border-color: rgba(148, 163, 184, .18);
+}
+
+.login-card .text-slate-900,
+.login-card .text-slate-800,
+.login-card .text-slate-700,
+.login-card .text-slate-600 {
+  color: #e6edf3 !important;
+}
+
+.login-card .text-slate-500,
+.login-card .text-slate-400 {
+  color: #9da7b3 !important;
+}
+
+.login-card input,
+.login-card select {
+  background: rgba(2, 6, 23, .62) !important;
+  color: #f0f6fc !important;
+  border-color: rgba(148, 163, 184, .35) !important;
+}
+
+.login-card input::placeholder {
+  color: #8b98a8 !important;
+}
+
+.login-card input:focus,
+.login-card select:focus {
+  background: rgba(2, 6, 23, .78) !important;
+  border-color: #58a6ff !important;
+  box-shadow: 0 0 0 3px rgba(31, 111, 235, .22) !important;
+}
+
+.login-card .bg-slate-50,
+.login-card .bg-slate-100 {
+  background: rgba(30, 41, 59, .7) !important;
+}
+
+.login-card .border-slate-100,
+.login-card .border-slate-200 {
+  border-color: rgba(148, 163, 184, .2) !important;
+}
+
+.app-shell {
+  background: #0b1220;
+  color: #e6edf3;
+}
+
+.app-header {
+  background: rgba(15, 23, 42, .88);
+  border-color: rgba(148, 163, 184, .18);
+  color: #e6edf3;
+}
+
+.surface-card {
+  background: rgba(15, 23, 42, .86);
+  border-color: rgba(148, 163, 184, .22);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .16);
+}
+
+.surface-card:hover {
+  border-color: rgba(88, 166, 255, .42);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .22);
+}
+
+.app-shell .text-slate-900,
+.app-shell .text-slate-800,
+.app-shell .text-slate-700 {
+  color: #e6edf3 !important;
+}
+
+.app-shell .text-slate-600 {
+  color: #c3ccd6 !important;
+}
+
+.app-shell .text-slate-500,
+.app-shell .text-slate-400 {
+  color: #8b98a8 !important;
+}
+
+.app-shell .bg-white {
+  background-color: #111b2e !important;
+}
+
+.app-shell .bg-slate-50,
+.app-shell .bg-slate-50\/60,
+.app-shell .bg-slate-50\/80,
+.app-shell .bg-slate-100 {
+  background-color: #162236 !important;
+}
+
+.app-shell .border-slate-100,
+.app-shell .border-slate-200,
+.app-shell .border-slate-300 {
+  border-color: rgba(148, 163, 184, .2) !important;
+}
+
+.app-shell input,
+.app-shell select {
+  background-color: #0b1220 !important;
+  color: #f0f6fc !important;
+  border-color: rgba(148, 163, 184, .3) !important;
+}
+
+.app-shell input::placeholder {
+  color: #718096 !important;
+}
+
+.app-shell input:focus,
+.app-shell select:focus {
+  border-color: #58a6ff !important;
+  box-shadow: 0 0 0 3px rgba(31, 111, 235, .2) !important;
+}
+
+.app-shell .hover\:bg-slate-50:hover,
+.app-shell .hover\:bg-slate-50\/80:hover {
+  background-color: #1c2a40 !important;
+}
+
+.app-shell .divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(148, 163, 184, .16) !important;
+}
+
+.app-shell .data-table thead tr {
+  background: #162236 !important;
+}
+
+.app-shell .data-table tbody tr:hover {
+  background: #1a2940 !important;
+}
+
+.bg-indigo-600 {
+  background-color: var(--blue) !important;
+}
+
+.hover\:bg-indigo-700:hover {
+  background-color: var(--blue-hover) !important;
+}
+
+.text-indigo-600,
+.text-indigo-700 {
+  color: var(--blue) !important;
+}
+
+.border-indigo-200 {
+  border-color: #b6d7f5 !important;
+}
+
+.bg-indigo-50 {
+  background-color: #ddf4ff !important;
 }
 
 .login-card button[type="submit"] {
