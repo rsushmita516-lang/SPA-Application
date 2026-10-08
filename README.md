@@ -44,8 +44,7 @@ The authenticated dashboard presents the user profile, access scope, searchable 
 
 Administrators can review users, roles, account status, registration dates, and available account actions.
 
-![User Management page]
-("C:\Users\SushmitaRoy\OneDrive\Pictures\Screenshots\user-management-page.png")
+![User Management page](docs/screenshots/user-management-page.png)
 
 ---
 
